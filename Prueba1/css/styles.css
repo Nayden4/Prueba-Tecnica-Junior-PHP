@@ -1,0 +1,101 @@
+@font-face {
+    font-family: 'Matterhorn';
+    src: url('../assets/Matterhorn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Matterhorn', sans-serif;
+    background-image: url('../assets/background.jpeg'); 
+    background-size: cover; 
+    background-position: center center; 
+    background-attachment: fixed; 
+    color: white; 
+}
+.navbar{
+    background-color: rgba(0, 0, 0, 0.842);
+}
+.nav-link{
+    color:#fade4b;
+}
+
+.select2-selection__choice, .select2-results__option{
+    color: black;
+}
+
+.nav-link{
+    color:#fade4b;
+}
+.starWars{
+    width: 50px;
+}
+
+h1{
+    color: rgb(223, 223, 223);
+}
+
+.comparation{
+    width: 33%;
+}
+
+thead, .nav-link{
+    color:#fade4b;
+}
+.main{
+    background-color: rgba(0, 0, 0, 0.363);
+    border-radius: 5px;
+}
+
+/* Modal */
+
+.modal-content{
+    background-color: rgba(224, 215, 215, 0);
+    border-radius: 5px;
+
+}
+
+h5{
+    font-weight: 900!important;
+    color: rgb(0, 0, 0);
+
+}
+
+.modal-header{
+    background-color: #fade4b;
+
+}
+.modal-body{
+    background-color: rgba(0, 0, 0, 0.781);
+    color:#fade4b;
+    border-radius: 0px 0px 5px 5px;
+
+}
+
+.form-control{
+    background-color: rgb(224, 215, 215);
+}
+
+input:hover, input:focus, .form-control:hover, .form-control:focus, .nav-link:hover {
+    background-color: #fade4b;
+}
+
+
+/* Botones */
+.btn-custom {
+    background-color: #fade4b;
+    color: black;
+}
+
+
+.btn-custom:hover{
+    background-color: #fad418;
+    color: black;
+
+}
+
+/* Tabla */
+
+.table-hover tbody tr:hover {
+    background-color: #b9b9b98f; 
+}
