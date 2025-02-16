@@ -15,6 +15,8 @@ try {
     // Obtener todas las clases de nave disponibles
     $stmtClasses = $pdo->prepare("SELECT id, name FROM starship_class");
     $stmtClasses->execute();
+
+    //Lo convierte en array asociativo
     $classes = $stmtClasses->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     // Manejo de errores si no se puede obtener la información

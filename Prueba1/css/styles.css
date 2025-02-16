@@ -1,3 +1,4 @@
+/* Fuentes */
 @font-face {
     font-family: 'Matterhorn';
     src: url('../assets/Matterhorn.ttf') format('truetype');
@@ -5,81 +6,82 @@
     font-style: normal;
 }
 
+/* Cuerpo */
 body {
     font-family: 'Matterhorn', sans-serif;
-    background-image: url('../assets/background.jpeg'); 
-    background-size: cover; 
-    background-position: center center; 
-    background-attachment: fixed; 
-    color: white; 
+    background-image: url('../assets/background.jpeg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: white;
 }
-.navbar{
+
+/* Navegación */
+.navbar {
     background-color: rgba(0, 0, 0, 0.842);
 }
-.nav-link{
-    color:#fade4b;
+
+.nav-link {
+    color: #fade4b;
 }
 
-.select2-selection__choice, .select2-results__option{
-    color: black;
+.nav-link:hover {
+    background-color: #fade4b;
 }
 
-.nav-link{
-    color:#fade4b;
-}
-.starWars{
-    width: 50px;
-}
-
-h1{
+/* Encabezados */
+h1 {
     color: rgb(223, 223, 223);
 }
 
-.comparation{
+h5 {
+    font-weight: 900!important;
+    color: rgb(0, 0, 0);
+}
+
+/* Estilos generales */
+.starWars {
+    width: 50px;
+}
+
+.comparation {
     width: 33%;
 }
 
-thead, .nav-link{
-    color:#fade4b;
+thead, .nav-link {
+    color: #fade4b;
 }
-.main{
+
+/* Contenedor principal */
+.main {
     background-color: rgba(0, 0, 0, 0.363);
     border-radius: 5px;
 }
 
 /* Modal */
-
-.modal-content{
+.modal-content {
     background-color: rgba(224, 215, 215, 0);
     border-radius: 5px;
-
 }
 
-h5{
-    font-weight: 900!important;
-    color: rgb(0, 0, 0);
-
-}
-
-.modal-header{
+.modal-header {
     background-color: #fade4b;
-
 }
-.modal-body{
+
+.modal-body {
     background-color: rgba(0, 0, 0, 0.781);
-    color:#fade4b;
+    color: #fade4b;
     border-radius: 0px 0px 5px 5px;
-
 }
 
-.form-control{
+/* Formulario */
+.form-control {
     background-color: rgb(224, 215, 215);
 }
 
-input:hover, input:focus, .form-control:hover, .form-control:focus, .nav-link:hover {
+input:hover, input:focus, .form-control:hover, .form-control:focus {
     background-color: #fade4b;
 }
-
 
 /* Botones */
 .btn-custom {
@@ -87,15 +89,17 @@ input:hover, input:focus, .form-control:hover, .form-control:focus, .nav-link:ho
     color: black;
 }
 
-
-.btn-custom:hover{
+.btn-custom:hover {
     background-color: #fad418;
     color: black;
-
 }
 
 /* Tabla */
-
 .table-hover tbody tr:hover {
-    background-color: #b9b9b98f; 
+    background-color: #b9b9b98f;
+}
+
+/* Estilo select2 */
+.select2-selection__choice, .select2-results__option {
+    color: black;
 }

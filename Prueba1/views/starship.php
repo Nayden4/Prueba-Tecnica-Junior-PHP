@@ -140,7 +140,7 @@ try {
         $('body').on('shown.bs.modal', function (e) {
             $(e.target).find('select#manufacturer').select2({
                 width: '100%',
-                dropdownParent: $(e.target) // Mantiene el menú dentro del modal
+                dropdownParent: $(e.target)
             });
         });
 
