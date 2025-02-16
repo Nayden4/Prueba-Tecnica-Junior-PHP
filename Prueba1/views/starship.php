@@ -22,7 +22,6 @@ try {
     $starships = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     // En caso de error con la base de datos
-    $_SESSION['message'] = "Error: " . $e->getMessage();
     header('Location: starship_import.php'); // Redirigir a la página de carga de CSV
     exit;
 }

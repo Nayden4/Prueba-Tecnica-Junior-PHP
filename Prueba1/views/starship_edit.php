@@ -61,7 +61,7 @@ try {
 
 
 <!-- Modal para editar la nave -->
-<div class="modal fade" id="editModal<?php echo $starshipId; ?>"  role="dialog"
+<div class="modal fade" id="editModal<?php echo $starshipId; ?>" role="dialog"
     aria-labelledby="editModalLabel<?php echo $starshipId; ?>" aria-hidden="true">
 
     <div class="modal-dialog modal-lg">
@@ -73,6 +73,8 @@ try {
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+
+            <!-- Mensaje de error -->
                 <?php if (isset($_SESSION['message'])): ?>
 
 
@@ -109,8 +111,8 @@ try {
                     <div class="row">
                         <div class="col-6 mb-3">
                             <label for="manufacturer" class="form-label ">Fabricante</label>
-                            <select class="form-control select2" id="manufacturer" name="manufacturer[]" multiple="multiple"
-                                required>
+                            <select class="form-control select2" id="manufacturer" name="manufacturer[]"
+                                multiple="multiple" required>
                                 <option value="">Seleccione un fabricante</option>
                                 <?php foreach ($manufacturers as $manufacturer): ?>
                                     <option value="<?php echo $manufacturer['id']; ?>" <?php
@@ -119,7 +121,7 @@ try {
                                            echo 'selected';
                                        }
                                        ?>>
-                    <?php echo htmlspecialchars($manufacturer['name']); ?>
+                        <?php echo htmlspecialchars($manufacturer['name']); ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
@@ -223,4 +225,3 @@ try {
         </div>
     </div>
 </div>
-

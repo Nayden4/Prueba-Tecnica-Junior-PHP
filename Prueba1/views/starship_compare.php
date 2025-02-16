@@ -114,7 +114,7 @@ function displayComparison(nave1, nave2) {
 
     // Creamos un array de objetos 
     const attributes = [
-        { name: 'Fabricante', value1: nave1.manufacturer, value2: nave2.manufacturer },
+        { name: 'Fabricante', value1: nave1.manufacturers, value2: nave2.manufacturers },
         { name: 'Clase', value1: nave1.starship_class, value2: nave2.starship_class },
         { name: 'Costo (créditos)', value1: nave1.cost_in_credits, value2: nave2.cost_in_credits },
         { name: 'Longitud', value1: nave1.length, value2: nave2.length },

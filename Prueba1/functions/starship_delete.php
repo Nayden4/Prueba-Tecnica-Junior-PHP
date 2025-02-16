@@ -8,30 +8,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->exec("PRAGMA foreign_keys = ON;");
 
-        // Verificar si la nave existe antes de eliminarla
-        $stmt = $pdo->prepare("SELECT * FROM starship WHERE id = :id");
-        $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
-        $stmt->execute();
-        $starship = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$starship) {
-            $_SESSION['messageDelete'] = "Error: La nave no existe.";
+        // Validar la entrada
+        $starship_id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        if (!$starship_id) {
+            $_SESSION['messageDelete'] = "Error: ID inválido.";
             header("Location: ../views/starship.php");
             exit;
         }
 
-        // Eliminar primero los registros dependientes en starship_attributes
+        // Iniciar transacción
+        $pdo->beginTransaction();
+
+        // Verificar si la nave existe
+        $stmt = $pdo->prepare("SELECT id FROM starship WHERE id = :id");
+        $stmt->execute([':id' => $starship_id]);
+        if (!$stmt->fetch()) {
+            throw new Exception("La nave no existe.");
+        }
+
+        // Eliminar relaciones en starship_manufacturer
+        $stmt = $pdo->prepare("DELETE FROM starship_manufacturer WHERE starship_id = :id");
+        $stmt->execute([':id' => $starship_id]);
+
+        // Eliminar en starship_attributes
         $stmt = $pdo->prepare("DELETE FROM starship_attributes WHERE starship_id = :id");
-        $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->execute([':id' => $starship_id]);
 
-        // Ahora eliminar la nave en starship
+        // Finalmente, eliminar la nave en starship
         $stmt = $pdo->prepare("DELETE FROM starship WHERE id = :id");
-        $stmt->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->execute([':id' => $starship_id]);
 
+        // Confirmar eliminación
+        $pdo->commit();
         $_SESSION['messageDelete'] = "Nave eliminada correctamente.";
-    } catch (PDOException $e) {
+    } catch (Exception $e) {
+        $pdo->rollBack();
         $_SESSION['messageDelete'] = "Error al eliminar: " . $e->getMessage();
     }
 }
