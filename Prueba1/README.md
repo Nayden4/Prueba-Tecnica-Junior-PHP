@@ -19,7 +19,7 @@ En esta prueba, he implementado la importación de un listado de naves desde un 
    Una vez que estés dentro de la carpeta `Prueba1`, ejecuta el siguiente comando:
 
    ```bash
-php -S localhost:9999 -t ./
+   php -S localhost:9999 -t ./
    ```
 
 
